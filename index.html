@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор на будні</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  input[type="number"] {
+    width: calc(50% - 10px);
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 7px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .calc-section {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+ <a href="index1.html"><strong>Перехід на калькулятор у вихідні➡️</strong></a>
+<body>
+  <h2>Калькулятор на будні</h2>
+  <div class="calc-section">
+    <label for="actual">Фактична(загал):</label>
+    <input type="number" id="actual">
+    <label for="plan">Плейсіт:</label>
+    <input type="number" id="plan">
+    
+	<label for="item">Товар:</label>
+    <input type="number" id="item">
+    <button onclick="calculateFact()">розрахувати фактичну</button>
+    <span id="factResult"></span>
+  </div>
+  <div class="calc-section">
+    <label for="ps5Plan">Товар(ПЛАН):</label>
+    <input type="number" id="ps5Plan">
+    <button onclick="calculatePS5Plan()">розрахувати план по товару</button>
+    <span id="ps5PlanResult"></span>
+  </div>
+  <div class="calc-section">
+    <label for="totalPS5">загальний PS5:</label>
+    <input type="number" id="totalPS5">
+    <label for="ps5Playset">PS5 Playseat:</label>
+    <input type="number" id="ps5Playset">
+    <button onclick="calculateTotalPS5()">розрахувати загальний PS5</button>
+    <span id="totalPS5Result"></span>
+  </div>
+  <div class="calc-section">
+    <label for="calculateSum">Розрахунок суми PS5:</label><br>
+    <label for="numbers1">число 1:</label>
+    <input type="number" id="number1">
+    <label for="numbers2">число 2:</label>
+    <input type="number" id="number2">
+    <label for="numbers3">число 3:</label>
+    <input type="number" id="number3">
+    <label for="numbers4">число 4:</label>
+    <input type="number" id="number4">
+    <button onclick="calculateSum()">розрахувати</button>
+    <span id="sumResult"></span>
+  </div>
+  <div class="calc-section">
+    <label for="planPercentage">Розрахунок плану по PS5:</label>
+    <input type="number" id="planPercentage">
+    <button onclick="calculatePlanPercentage()">розрахувати</button>
+    <span id="planPercentageResult"></span>
+  </div>
+
+  <script>
+    function calculateFact() {
+      var actual = parseFloat(document.getElementById('actual').value);
+      var plan = parseFloat(document.getElementById('plan').value);
+      var item = parseFloat(document.getElementById('item').value);
+      var result = actual - plan - item;
+      document.getElementById('factResult').innerHTML = 'Result: ' + result;
+    }
+
+    function calculatePS5Plan() {
+      var ps5Plan = parseFloat(document.getElementById('ps5Plan').value);
+      var result = (ps5Plan / 1800) * 100 - 100;
+      document.getElementById('ps5PlanResult').innerHTML = 'Result: ' + result;
+    }
+
+    function calculateTotalPS5() {
+      var totalPS5 = parseFloat(document.getElementById('totalPS5').value);
+      var ps5Playset = parseFloat(document.getElementById('ps5Playset').value);
+      var result = totalPS5 - ps5Playset;
+      document.getElementById('totalPS5Result').innerHTML = 'Result: ' + result;
+    }
+
+    function calculateSum() {
+      var sum = 0;
+      for (var i = 1; i <= 4; i++) {
+        var number = parseFloat(document.getElementById('number' + i).value);
+        if (!isNaN(number)) {
+          sum += number;
+        }
+      }
+      document.getElementById('sumResult').innerHTML = 'Sum: ' + sum;
+    }
+
+    function calculatePlanPercentage() {
+      var planPercentage = parseFloat(document.getElementById('planPercentage').value);
+      var result = (planPercentage / 4200) * 100 - 100;
+      document.getElementById('planPercentageResult').innerHTML = 'Result: ' + result;
+    }
+</script>
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор на вихідні</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  input[type="number"] {
+    width: calc(50% - 10px);
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 7px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .calc-section {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+  <h2>Калькулятор на вихідні</h2>
+  <div class="calc-section">
+    <label for="planPercentage1">Розрахунок плану по PS5:</label>
+    <input type="number" id="planPercentage1">
+    <button onclick="calculatePlanPercentage()">розрахувати</button>
+    <span id="planPercentageResult1"></span>
+  </div>
+  
+  <div class="calc-section">
+    <label for="ps5Plan1">Розрахунок плану по товару:</label>
+    <input type="number" id="ps5Plan1">
+    <button onclick="calculatePS5Plan()">розрахувати план</button>
+    <span id="ps5PlanResult1"></span>
+  </div>
+
+  <script>
+    function calculatePlanPercentage() {
+      var planPercentage = parseFloat(document.getElementById('planPercentage1').value);
+      var result = (planPercentage / 5600) * 100 - 100;
+      document.getElementById('planPercentageResult1').innerHTML = 'Result: ' + result;
+    }
+	
+    function calculatePS5Plan() {
+      var ps5Plan = parseFloat(document.getElementById('ps5Plan1').value);
+      var result = (ps5Plan / 2400) * 100 - 100;
+      document.getElementById('ps5PlanResult1').innerHTML = 'Result: ' + result;
+    }
+  </script>
+</body>
+</html>
