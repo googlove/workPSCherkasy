@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/calc.ico" type="image/x-icon">
 <title>Калькулятор на будні</title>
 <style>
   body {
@@ -34,10 +35,9 @@
   <div class="calc-section">
     <label for="actual">Фактична(загал):</label>
     <input type="number" id="actual">
-    <label for="plan">Плейсіт:</label>
+    <label for="plan">Плейсіт(факт):</label>
     <input type="number" id="plan">
-    
-	<label for="item">Товар:</label>
+	<label for="item">Товар(факт):</label>
     <input type="number" id="item">
     <button onclick="calculateFact()">розрахувати фактичну</button>
     <span id="factResult"></span>
