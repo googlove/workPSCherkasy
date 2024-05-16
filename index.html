@@ -82,20 +82,20 @@
       var plan = parseFloat(document.getElementById('plan').value);
       var item = parseFloat(document.getElementById('item').value);
       var result = actual - plan - item;
-      document.getElementById('factResult').innerHTML = 'Result: ' + result;
+      document.getElementById('factResult').innerHTML = 'Результат: ' + result;
     }
 
     function calculatePS5Plan() {
       var ps5Plan = parseFloat(document.getElementById('ps5Plan').value);
       var result = (ps5Plan / 1800) * 100 - 100;
-      document.getElementById('ps5PlanResult').innerHTML = 'Result: ' + result;
+      document.getElementById('ps5PlanResult').innerHTML = 'Результат: ' + result;
     }
 
     function calculateTotalPS5() {
       var totalPS5 = parseFloat(document.getElementById('totalPS5').value);
       var ps5Playset = parseFloat(document.getElementById('ps5Playset').value);
       var result = totalPS5 - ps5Playset;
-      document.getElementById('totalPS5Result').innerHTML = 'Result: ' + result;
+      document.getElementById('totalPS5Result').innerHTML = 'Результат: ' + result;
     }
 
     function calculateSum() {
@@ -106,13 +106,13 @@
           sum += number;
         }
       }
-      document.getElementById('sumResult').innerHTML = 'Sum: ' + sum;
+      document.getElementById('sumResult').innerHTML = 'Результат суми: ' + sum;
     }
 
     function calculatePlanPercentage() {
       var planPercentage = parseFloat(document.getElementById('planPercentage').value);
       var result = (planPercentage / 4200) * 100 - 100;
-      document.getElementById('planPercentageResult').innerHTML = 'Result: ' + result;
+      document.getElementById('planPercentageResult').innerHTML = 'Результат: ' + result;
     }
 </script>
 </body>
