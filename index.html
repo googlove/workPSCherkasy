@@ -39,11 +39,31 @@
         .calc-section input {
             margin-bottom: 5px; /* Add some space below each input */
         }
+        .rules-section {
+            border: 1px solid #000; /* Add a black border */
+            padding: 20px; /* Add some padding inside the border */
+            margin-bottom: 20px; /* Add some space below the section */
+            border-radius: 10px; /* Optional: round the corners of the border */
+            font-family: Arial, sans-serif; /* Set a default font */
+        }
+        @media (max-width: 600px) {
+            .rules-section {
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+        }
 </style>
 </head>
  <a href="index1.html"><strong>Перехід на калькулятор у вихідні➡️</strong></a>
 <body>
   <h2>Калькулятор на будні</h2>
+  <div class="rules-section">
+    <h3>Робимо наступні кроки:</h3>
+    <ol>
+        <li>Зробити звіт загальний;</li>
+        <li>Звіт по зонам відвідуваності.</li>
+    </ol>
+</div>
+
   <div class="calc-section">
     <label for="actual"><strong>Фактична(загал):</strong></label>
     <input type="number" id="actual">
