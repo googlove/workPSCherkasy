@@ -101,14 +101,14 @@
     <span id="totalPS5Result"></span>
   </div>
   <div class="calc-section">
-    <label for="calculateSum"><strong>Розрахунок суми PS5:</strong></label><br>
-    <label for="numbers1">число 1:</label>
+    <label for="calculateSum"><strong>Розрахунок суми виручки(загальної):</strong></label><br>
+    <label for="number1">Товар:</label>
     <input type="number" id="number1">
-    <label for="numbers2">число 2:</label>
+    <label for="number2">Бар:</label>
     <input type="number" id="number2">
-    <label for="numbers3">число 3:</label>
+    <label for="number3">PS5:</label>
     <input type="number" id="number3">
-    <label for="numbers4">число 4:</label>
+    <label for="number4">Playseat:</label>
     <input type="number" id="number4">
     <button onclick="calculateSum()">розрахувати</button>
     <span id="sumResult"></span>
@@ -137,14 +137,12 @@
     }
 
     function calculateSum() {
-      var sum = 0;
-      for (var i = 1; i <= 4; i++) {
-        var number = parseFloat(document.getElementById('number' + i).value);
-        if (!isNaN(number)) {
-          sum += number;
-        }
-      }
-      document.getElementById('sumResult').innerHTML = 'Результат суми: ' + sum;
+      var number1 = parseFloat(document.getElementById('number1').value) || 0;
+      var number2 = parseFloat(document.getElementById('number2').value) || 0;
+      var number3 = parseFloat(document.getElementById('number3').value) || 0;
+      var number4 = parseFloat(document.getElementById('number4').value) || 0;
+      var sum = number1 + number2 + number3 + number4;
+      document.getElementById('sumResult').innerHTML = 'Sum: ' + sum;
     }
 
     function calculatePlanPercentage() {

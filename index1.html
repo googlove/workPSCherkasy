@@ -81,7 +81,19 @@
     <button onclick="calculatePS5Plan()">розрахувати</button>
     <span id="ps5PlanResult1"></span>
   </div>
-
+  <div class="calc-section">
+    <label for="calculateSum"><strong>Розрахунок суми виручки(загальної):</strong></label><br>
+    <label for="number1">Товар:</label>
+    <input type="number" id="number1">
+    <label for="number2">Бар:</label>
+    <input type="number" id="number2">
+    <label for="number3">PS5:</label>
+    <input type="number" id="number3">
+    <label for="number4">Playseat:</label>
+    <input type="number" id="number4">
+    <button onclick="calculateSum()">розрахувати</button>
+    <span id="sumResult"></span>
+  </div>
   <script>
     function calculatePlanPercentage() {
       var planPercentage = parseFloat(document.getElementById('planPercentage1').value);
@@ -93,6 +105,15 @@
       var ps5Plan = parseFloat(document.getElementById('ps5Plan1').value);
       var result = (ps5Plan / 2400) * 100 - 100;
       document.getElementById('ps5PlanResult1').innerHTML = 'Результат: ' + result;
+    }
+
+    function calculateSum() {
+      var number1 = parseFloat(document.getElementById('number1').value) || 0;
+      var number2 = parseFloat(document.getElementById('number2').value) || 0;
+      var number3 = parseFloat(document.getElementById('number3').value) || 0;
+      var number4 = parseFloat(document.getElementById('number4').value) || 0;
+      var sum = number1 + number2 + number3 + number4;
+      document.getElementById('sumResult').innerHTML = 'Sum: ' + sum;
     }
   </script>
 </body>
