@@ -185,12 +185,18 @@
 
 
     function subtractItemFromRoofBar() {
-      var item = parseFloat(document.getElementById('item').value);
-      var roofBarOrders = parseFloat(document.getElementById('roofBarOrders').value);
-      var result = roofBarOrders - item;
-      document.getElementById('roofBarResult').innerHTML = 'Результат: ' + result;
-    }
-    
+  var item = parseFloat(document.getElementById('item').value);
+  var roofBarOrders = parseFloat(document.getElementById('roofBarOrders').value);
+
+  // Перевірка на NaN
+  if (isNaN(item) || isNaN(roofBarOrders)) {
+    document.getElementById('roofBarResult').innerHTML = 'Будь ласка, введіть коректні значення';
+    return;
+  }
+
+  var result = roofBarOrders - item;
+  document.getElementById('roofBarResult').innerHTML = 'Результат: ' + result;
+}
 </script>
 </body>
 </html>
