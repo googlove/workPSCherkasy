@@ -60,7 +60,8 @@
     <h3>Робимо наступні кроки:</h3>
     <ol>
         <li>Зробити звіт загальний;</li>
-        <li>Звіт по зонам відвідуваності.</li>
+        <li>Звіт відвідуваності за зонам;</li>
+        <li>Звіт по відвідуваності.</li>
     </ol>
 </div>
 
@@ -84,7 +85,7 @@
   </div>
   
   <div class="calc-section">
-    <h4>(Введіть вашу цифру по PS5/ 4200) * 100 - 100;</h4>
+    <h4>(Введіть вашу цифру по PS5(ПК)/ 4200) * 100 - 100;</h4>
     <label for="planPercentage"><strong>Розрахунок плану по PS5:</strong></label>
     <input type="number" id="planPercentage">
     <button onclick="calculatePlanPercentage()">розрахувати</button>
@@ -114,6 +115,23 @@
     <span id="sumResult"></span>
   </div>
 
+
+  <div class="calc-section">
+    <label for="flyers">Віднімання PS5 - 100 за флеєри:</label>
+    <input type="number" id="flyers">
+    <button onclick="subtractFrom100()">розрахувати</button>
+    <span id="flyersResult"></span>
+  </div>
+
+  <div class="calc-section">
+    <label for="item">Товар:</label>
+    <input type="number" id="item">
+    <label for="roofBarOrders">Замовлення руфбару:</label>
+    <input type="number" id="roofBarOrders">
+    <button onclick="subtractItemFromRoofBar()">розрахувати</button>
+    <span id="roofBarResult"></span>
+  </div>
+
   <script>
     function calculateFact() {
       var actual = parseFloat(document.getElementById('actual').value);
@@ -123,10 +141,24 @@
       document.getElementById('factResult').innerHTML = 'Результат: ' + result;
     }
 
-    function calculatePS5Plan() {
-      var ps5Plan = parseFloat(document.getElementById('ps5Plan').value);
+    function calculatePS5Plan1() {
+      var ps5Plan = parseFloat(document.getElementById('ps5Plan1').value);
       var result = (ps5Plan / 1800) * 100 - 100;
-      document.getElementById('ps5PlanResult').innerHTML = 'Результат: ' + result;
+      var message = 'Результат: ' + result.toFixed(2);
+      if (result >= 0) {
+        message += '&nbsp; - Ви виконали план по PS/PC, робіть і далі такі показники, і до премії недалеко!';
+      }
+      document.getElementById('ps5PlanResult1').innerHTML = message;
+    }
+
+    function calculatePlanPercentage() {
+      var planPercentage = parseFloat(document.getElementById('planPercentage').value);
+      var result = (planPercentage / 4200) * 100 - 100;
+      var message = 'Результат: ' + result.toFixed(2);
+      if (result >= 0) {
+        message += '&nbsp; - Ви виконали план по PS/PC, робіть і далі такі показники, і до премії недалеко!';
+      }
+      document.getElementById('planPercentageResult').innerHTML = message;
     }
 
     function calculateTotalPS5() {
@@ -145,11 +177,20 @@
       document.getElementById('sumResult').innerHTML = 'Результат: ' + sum;
     }
 
-    function calculatePlanPercentage() {
-      var planPercentage = parseFloat(document.getElementById('planPercentage').value);
-      var result = (planPercentage / 4200) * 100 - 100;
-      document.getElementById('planPercentageResult').innerHTML = 'Результат: ' + result;
+    function subtractFrom100() {
+      var flyers = parseFloat(document.getElementById('flyers').value);
+      var result = 100 - flyers;
+      document.getElementById('flyersResult').innerHTML = 'Результат: ' + result;
     }
+
+
+    function subtractItemFromRoofBar() {
+      var item = parseFloat(document.getElementById('item').value);
+      var roofBarOrders = parseFloat(document.getElementById('roofBarOrders').value);
+      var result = roofBarOrders - item;
+      document.getElementById('roofBarResult').innerHTML = 'Результат: ' + result;
+    }
+    
 </script>
 </body>
 </html>
