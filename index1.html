@@ -95,10 +95,14 @@
     <span id="sumResult"></span>
   </div>
   <script>
-    function calculatePlanPercentage() {
+  function calculatePlanPercentage() {
       var planPercentage = parseFloat(document.getElementById('planPercentage1').value);
       var result = (planPercentage / 5600) * 100 - 100;
-      document.getElementById('planPercentageResult1').innerHTML = 'Результат: ' + result;
+      var message = 'Результат: ' + result.toFixed(2);
+      if (result >= 0) {
+        message += ' Ви виконали план, робіть і далі такі показники, і до премії недалеко!';
+      }
+      document.getElementById('planPercentageResult1').innerHTML = message;
     }
 	
     function calculatePS5Plan() {
