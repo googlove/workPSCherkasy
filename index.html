@@ -124,10 +124,10 @@
   </div>
 
   <div class="calc-section">
-    <label for="item">Товар:</label>
-    <input type="number" id="item">
-    <label for="roofBarOrders">Замовлення руфбару:</label>
-    <input type="number" id="roofBarOrders">
+    <label for="number1">Товар:</label>
+    <input type="number" id="number1">
+    <label for="number2">Замовлення руфбару:</label>
+    <input type="number" id="number2">
     <button onclick="subtractItemFromRoofBar()">розрахувати</button>
     <span id="roofBarResult"></span>
   </div>
@@ -184,18 +184,18 @@
     }
 
 
-    function subtractItemFromRoofBar() {
-  var item = int(document.getElementById('item').value);
-  var roofBarOrders = int(document.getElementById('roofBarOrders').value);
+    function subtractNumbers() {
+  var number1 = parseFloat(document.getElementById('number1').value);
+  var number2 = parseFloat(document.getElementById('number2').value);
 
   // Перевірка на NaN
-  if (isNaN(item) || isNaN(roofBarOrders)) {
-    document.getElementById('roofBarResult').innerHTML = 'Будь ласка, введіть коректні значення';
+  if (isNaN(number1) || isNaN(number2)) {
+    document.getElementById('subtractResult').innerHTML = 'Будь ласка, введіть коректні значення';
     return;
   }
 
-  var result = roofBarOrders - item;
-  document.getElementById('roofBarResult').innerHTML = 'Результат: ' + result;
+  var result = number1 - number2;
+  document.getElementById('subtractResult').innerHTML = 'Результат: ' + result;
 }
 </script>
 </body>
