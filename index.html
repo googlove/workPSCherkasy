@@ -126,8 +126,12 @@
   <div class="calc-section">
     <label for="number1">Товар:</label>
     <input type="number" id="number1">
-    <label for="number2">Замовлення руфбару:</label>
+  </div>
+  <div class="calc-section">
+    <label for="number2">Руфбар:</label>
     <input type="number" id="number2">
+  </div>
+  <div class="calc-section">
     <button onclick="subtractNumbers()">Віднімання</button>
   </div>
   <div class="calc-section">
@@ -185,12 +189,15 @@
       document.getElementById('flyersResult').innerHTML = 'Результат: ' + result;
     }
 
-
     function subtractNumbers() {
     var number1 = parseFloat(document.getElementById('number1').value);
     var number2 = parseFloat(document.getElementById('number2').value);
-    var result = number1 - number2;
-    document.getElementById('subtractResult').innerText = 'Результат: ' + result;
+    if (isNaN(number1) || isNaN(number2)) {
+      document.getElementById('subtractResult').innerText = 'Будь ласка, введіть числа у відповідні поля.';
+    } else {
+      var result = number1 - number2;
+      document.getElementById('subtractResult').innerText = 'Результат віднімання: ' + result;
+    }
   }
 </script>
 </body>
