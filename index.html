@@ -128,8 +128,10 @@
     <input type="number" id="number1">
     <label for="number2">Замовлення руфбару:</label>
     <input type="number" id="number2">
-    <button onclick="subtractItemFromRoofBar()">розрахувати</button>
-    <span id="roofBarResult"></span>
+    <button onclick="subtractNumbers()">Віднімання</button>
+  </div>
+  <div class="calc-section">
+    <span id="subtractResult"></span>
   </div>
 
   <script>
@@ -179,24 +181,17 @@
 
     function subtractFrom100() {
       var flyers = parseFloat(document.getElementById('flyers').value);
-      var result = 100 - flyers;
+      var result = flyers - 100;
       document.getElementById('flyersResult').innerHTML = 'Результат: ' + result;
     }
 
 
     function subtractNumbers() {
-  var number1 = parseFloat(document.getElementById('number1').value);
-  var number2 = parseFloat(document.getElementById('number2').value);
-
-  // Перевірка на NaN
-  if (isNaN(number1) || isNaN(number2)) {
-    document.getElementById('subtractResult').innerHTML = 'Будь ласка, введіть коректні значення';
-    return;
+    var number1 = parseFloat(document.getElementById('number1').value);
+    var number2 = parseFloat(document.getElementById('number2').value);
+    var result = number1 - number2;
+    document.getElementById('subtractResult').innerText = 'Результат: ' + result;
   }
-
-  var result = number1 - number2;
-  document.getElementById('subtractResult').innerHTML = 'Результат: ' + result;
-}
 </script>
 </body>
 </html>
