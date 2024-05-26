@@ -185,8 +185,8 @@
 
 
     function subtractItemFromRoofBar() {
-  var item = parseFloat(document.getElementById('item').value);
-  var roofBarOrders = parseFloat(document.getElementById('roofBarOrders').value);
+  var item = int(document.getElementById('item').value);
+  var roofBarOrders = int(document.getElementById('roofBarOrders').value);
 
   // Перевірка на NaN
   if (isNaN(item) || isNaN(roofBarOrders)) {
