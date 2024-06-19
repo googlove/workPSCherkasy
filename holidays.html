@@ -76,7 +76,7 @@
         }
 </style>
 </head>
-<a href="index.html"><h4>🔙Повернутись назад</h4></a>
+<a href="pc-club.html"><strong>🔙Повернутись назад</strong></a>
 <body>
 
   <div class="rules-section">
@@ -88,45 +88,43 @@
       <li>Звіт по виручці(загальна).</li>
     </ol>
 </div>
-<h2>Калькулятор на будні</h2>
-<a href="holidays.html"><h3>Перехід на калькулятор у вихідні➡️</h3></a>
-<div class="calc-section">
-  <h3>Введіть ваш показник по товару</h3>
-  <h4>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати</h4>
-  <h4>(ваш показник по товару/ 1800) * 100 - 100</h4>
-  <label for="weekdayPlan1"><strong>Розрахунок плану по товару:</strong></label>
-  <input type="number" id="weekdayPlan1">
-  <button onclick="calculateWeekdayPlan()">розрахувати</button>
-  <span id="weekdayPlanResult1"></span>
-</div>
+<h2>Калькулятор на вихідні</h2>
+  <div class="calc-section">
+    <h3>Введіть ваш показник по ПК</h3>
+    <h4>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати</h4>
+    <h4>(ваш показник по ПК / 5600) * 100 - 100</h4>
+    <label for="planPercentage1"><strong>Розрахунок плану по ПК:</strong></label>
+    <input type="number" id="planPercentage1">
+    <button onclick="calculatePlanPercentage()">розрахувати</button>
+    <span id="planPercentageResult1"></span>
+  </div>
+  
+  <div class="calc-section">
+    <h3>Введіть ваш показник по товару</h3>
+    <h4>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати</h4>
+    <h4>(ваш показник по товару/ 2400) * 100 - 100</h4>
+    <label for="pcPlan1"><strong>Розрахунок плану по товару:</strong></label>
+    <input type="number" id="pcPlan1">
+    <button onclick="calculatePCPlan()">розрахувати</button>
+    <span id="pcPlanResult1"></span>
+  </div>
 
-<div class="calc-section">
-  <h3>(Введіть ваш показник по ПК/ 4200) * 100 - 100</h3>
-  <h4>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати.</h4>
-  <h4>(ваш показник по ПК /4200) * 100 - 100</h4>
-  <label for="weekdayPlan2"><strong>Розрахунок плану по ПК:</strong></label>
-  <input type="number" id="weekdayPlan2">
-  <button onclick="calculateWeekdayPCPlan()">розрахувати</button>
-  <span id="weekdayPlanResult2"></span>
-</div>
+  <h2>Калькулятор виручки</h2>
+  <div class="calc-section">
+    <h4>Введіть ваші суми:</h4>
+    <label for="pcRevenue"><strong>Виручка за ПК:</strong></label>
+    <input type="number" id="pcRevenue">
+    <label for="tennisRevenue"><strong>Виручка за теніс(Pinball):</strong></label>
+    <input type="number" id="tennisRevenue">
+    <label for="ps5Revenue"><strong>Виручка за PS5 (Xbox):</strong></label>
+    <input type="number" id="ps5Revenue">
+    <label for="playseatRevenue"><strong>Виручка за Playseat:</strong></label>
+    <input type="number" id="playseatRevenue">
+    <button onclick="calculateAdjustedPcRevenue()">розрахувати</button>
+    <span id="adjustedPcRevenueResult"></span>
+  </div>
 
-<h2>Калькулятор виручки</h2>
-<div class="calc-section">
-  <h4>Введіть ваші суми:</h4>
-  <label for="pcRevenue"><strong>Виручка за ПК:</strong></label>
-  <input type="number" id="pcRevenue">
-  <label for="tennisRevenue"><strong>Виручка за теніс(Pinball):</strong></label>
-  <input type="number" id="tennisRevenue">
-  <label for="ps5Revenue"><strong>Виручка за PS5 (Xbox):</strong></label>
-  <input type="number" id="ps5Revenue">
-  <label for="playseatRevenue"><strong>Виручка за Playseat:</strong></label>
-  <input type="number" id="playseatRevenue">
-  <button onclick="calculateAdjustedPcRevenue()">розрахувати</button>
-  <span id="adjustedPcRevenueResult"></span>
-</div>
-
-
-<h2>Калькулятор виручки №2</h2>
+  <h2>Калькулятор виручки №2</h2>
 <div class="calc-section">
   <h4>Введіть вашу загальну виручку та відрахування:</h4>
   <label for="totalRevenue"><strong>Загальна виручка:</strong></label>
@@ -142,6 +140,7 @@
   <button onclick="calculateNetRevenue()">розрахувати</button>
   <span id="netRevenueResult"></span>
 </div>
+
   
 <h2>Розрахунок суми за ПК, магазин, та послуги (для статистики)</h2>
 <div class="calc-section">
@@ -155,8 +154,6 @@
   <button onclick="calculateTotalAmount()">розрахувати</button>
   <span id="totalAmountResult"></span>
 </div>
-
-
 
   <script>
     function calculatePlanPercentage() {
@@ -208,7 +205,6 @@
       document.getElementById('totalAmountResult').innerHTML = 'Результат: ' + total;
     }
 
-
     function calculateAdjustedPcRevenue() {
       var pcRevenue = parseFloat(document.getElementById('pcRevenue').value) || 0;
       var tennisRevenue = parseFloat(document.getElementById('tennisRevenue').value) || 0;
@@ -217,7 +213,6 @@
       var adjustedPcRevenue = pcRevenue - tennisRevenue - ps5Revenue - playseatRevenue;
       document.getElementById('adjustedPcRevenueResult').innerHTML = 'Результат: ' + adjustedPcRevenue.toFixed(2);
     }
-
 
     function calculateNetRevenue() {
       var totalRevenue = parseFloat(document.getElementById('totalRevenue').value) || 0;
