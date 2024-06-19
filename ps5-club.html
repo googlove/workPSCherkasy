@@ -96,7 +96,7 @@
   </div>
 
   <div class="calc-section">
-    <h4>Введіть ваші цифри(PS5 - Playseat):</h4>
+    <h4>Введіть ваші показники(PS5 - Playseat):</h4>
     <label for="totalPS5"><strong>Загальний PS5:</strong></label>
     <input type="number" id="totalPS5">
     <label for="ps5Playset"><strong>Playseat:</strong></label>
@@ -116,30 +116,6 @@
     <input type="number" id="number4">
     <button onclick="calculateSum()">розрахувати</button>
     <span id="sumResult"></span>
-  </div>
-
-
-  <div class="calc-section">
-    <label for="flyers">Віднімання PS5 - 100 за флеєри:</label>
-    <input type="number" id="flyers">
-    <button onclick="subtractFrom100()">розрахувати</button>
-    <span id="flyersResult"></span>
-  </div>
-
-
-  <div class="calc-section">
-    <label for="number1">Товари:</label>
-    <input type="number" id="number1">
-  </div>
-  <div class="calc-section">
-    <label for="number2">Руфбар:</label>
-    <input type="number" id="number2">
-  </div>
-  <div class="calc-section">
-    <button onclick="subtractNumbers()">Віднімання</button>
-  </div>
-  <div class="calc-section">
-    <span id="subtractResult"></span>
   </div>
 
 
@@ -187,24 +163,6 @@
       var sum = number1 + number2 + number3 + number4;
       document.getElementById('sumResult').innerHTML = 'Результат: ' + sum;
     }
-
-    function subtractFrom100() {
-      var flyers = parseFloat(document.getElementById('flyers').value);
-      var result = flyers - 100;
-      document.getElementById('flyersResult').innerHTML = 'Результат: ' + result;
-    }
-
-
-    function subtractNumbers() {
-    var number1 = parseFloat(document.getElementById('a').value);
-    var number2 = parseFloat(document.getElementById('b').value);
-    if (!isNaN(number1) && !isNaN(number2)) {
-      var result = a - b;
-      document.getElementById('subtractResult').innerText = 'Результат віднімання: ' + result;
-    } else {
-      document.getElementById('subtractResult').innerText = 'Будь ласка, введіть числа у відповідні поля.';
-    }
-  }
 
 </script>
 </body>
