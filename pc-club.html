@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/calc.ico" type="image/x-icon">
+<title>Калькулятор на будні та вихідні</title>
+<style>
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  input[type="number"] {
+    width: calc(50% - 10px);
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 7px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .calc-section {
+    margin-bottom: 5px;
+  }
+  .calc-section {
+    border: 1px solid #000; /* Add a black border to each section */
+    padding: 20px; /* Add some padding inside the border */
+    margin-bottom: 20px; /* Add some space between sections */
+    border-radius: 10px; /* Optional: round the corners of the border */
+  }
+  .calc-section label {
+    display: block; /* Ensure each label is on a new line */
+    margin-top: 10px; /* Add some space above each label */
+  }
+  .calc-section input {
+    width: 100%; /* Make the input fields responsive */
+    margin-bottom: 10px; /* Add some space below each input */
+    padding: 5px; /* Add some padding to the input fields */
+    box-sizing: border-box;
+  }
+  .calc-section button {
+    padding: 10px 20px; /* Add some padding to the buttons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 10px;
+  }
+  .calc-section span {
+    display: block; /* Ensure each result is on a new line */
+    margin-top: 10px; /* Add some space above each result */
+  }
+  @media (max-width: 600px) {
+    .calc-section {
+      padding: 10px; /* Reduce padding for smaller screens */
+    }
+    .calc-section button {
+      width: 100%; /* Make buttons full width on smaller screens */
+    }
+  }
+</style>
+</head>
+<body>
+  <h2>Калькулятор на вихідні</h2>
+  <div class="calc-section">
+    <h4>Введіть ваш показник по ПК</h4>
+    <h6>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати</h6>
+    <h5>(ваш показник по ПК / 5600) * 100 - 100</h5>
+    <label for="planPercentage1"><strong>Розрахунок плану по PS5:</strong></label>
+    <input type="number" id="planPercentage1">
+    <button onclick="calculatePlanPercentage()">розрахувати</button>
+    <span id="planPercentageResult1"></span>
+  </div>
+  
+  <div class="calc-section">
+    <h4>Введіть ваш показник по товару</h4>
+    <h6>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати</h6>
+    <h5>(ваш показник по товару/ 2400) * 100 - 100</h5>
+    <label for="ps5Plan1"><strong>Розрахунок плану по товару:</strong></label>
+    <input type="number" id="ps5Plan1">
+    <button onclick="calculatePS5Plan()">розрахувати</button>
+    <span id="ps5PlanResult1"></span>
+  </div>
+ 
+  
+  <h2>Калькулятор на будні</h2>
+  <div class="calc-section">
+    <h4>Введіть ваш показник по товару</h4>
+    <h6>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати</h6>
+    <h5>(ваш показник по товару/ 1800) * 100 - 100</h5>
+    <label for="weekdayPlan1"><strong>Розрахунок плану по товару:</strong></label>
+    <input type="number" id="weekdayPlan1">
+    <button onclick="calculateWeekdayPlan()">розрахувати</button>
+    <span id="weekdayPlanResult1"></span>
+  </div>
+  
+  <div class="calc-section">
+    <h4>(Введіть ваш показник по ПК/ 4200) * 100 - 100</h4>
+    <h6>Формула вже в коді, вам потірібно ввести тільки показник, який потрібно вираховувати.</h6>
+    <h5>(ваш показник по ПК /4200) * 100 - 100</h5>
+    <label for="weekdayPlan2"><strong>Розрахунок плану по PS5:</strong></label>
+    <input type="number" id="weekdayPlan2">
+    <button onclick="calculateWeekdayPSPlan()">розрахувати</button>
+    <span id="weekdayPlanResult2"></span>
+  </div>
+  
+  
+  
+  <script>
+    function calculatePlanPercentage() {
+      var planPercentage = parseFloat(document.getElementById('planPercentage1').value);
+      var result = (planPercentage / 5600) * 100 - 100;
+      var message = 'Результат: ' + result.toFixed(2);
+      if (result >= 0) {
+        message +=  '&nbsp; - Ви виконали план по ПК, робіть і далі такі показники, і до премії недалеко!';
+      }
+      document.getElementById('planPercentageResult1').innerHTML = message;
+    }
+  
+    function calculatePS5Plan() {
+      var ps5Plan = parseFloat(document.getElementById('ps5Plan1').value);
+      var result = (ps5Plan / 2400) * 100 - 100;
+      var message = 'Результат: ' + result.toFixed(2);
+      if (result >= 0) {
+        message +=  '&nbsp; - Ви виконали план по товару, робіть і далі такі показники, і до премії недалеко!';
+      }
+      document.getElementById('ps5PlanResult1').innerHTML = message;
+    }
+  
+  
+    function calculateWeekdayPlan() {
+      var weekdayPlan = parseFloat(document.getElementById('weekdayPlan1').value);
+      var result = (weekdayPlan / 1800) * 100 - 100;
+      var message = 'Результат: ' + result.toFixed(2);
+      if (result >= 0) {
+        message +=  '&nbsp; - Ви виконали план по товару, робіть і далі такі показники, і до премії недалеко!';
+      }
+      document.getElementById('weekdayPlanResult1').innerHTML = message;
+    }
+  
+    function calculateWeekdayPCPlan() {
+      var weekdayPSPlan = parseFloat(document.getElementById('weekdayPlan2').value);
+      var result = (weekdayPSPlan / 4200) * 100 - 100;
+      var message = 'Результат: ' + result.toFixed(2);
+      if (result >= 0) {
+        message +=  '&nbsp; - Ви виконали план по ПК, робіть і далі такі показники, і до премії недалеко!';
+      }
+      document.getElementById('weekdayPlanResult2').innerHTML = message;
+    }
+  </script>
+</body>
+</html>
