@@ -118,6 +118,21 @@
     <span id="sumResult"></span>
   </div>
 
+  <div class="calc-section">
+    <h4>Введіть суми для розрахунку зарплати:</h4>
+    <label for="weekendGoods"><strong>Вихідні - Товар:</strong></label>
+    <input type="number" id="weekendGoods">
+    <label for="weekendPC"><strong>Вихідні - ПК:</strong></label>
+    <input type="number" id="weekendPC">
+    <label for="weekdayGoods"><strong>Будні - Товар:</strong></label>
+    <input type="number" id="weekdayGoods">
+    <label for="weekdayPC"><strong>Будні - ПК:</strong></label>
+    <input type="number" id="weekdayPC">
+    <button onclick="calculateWeekendSalary()">Моя зарплата за вихідні</button>
+    <span id="weekendSalaryResult"></span>
+    <button onclick="calculateWeekdaySalary()">Моя зарплата за будні</button>
+    <span id="weekdaySalaryResult"></span>
+  </div>
 
   <script>
     function calculateFact() {
@@ -162,6 +177,30 @@
       var number4 = parseFloat(document.getElementById('number4').value) || 0;
       var sum = number1 + number2 + number3 + number4;
       document.getElementById('sumResult').innerHTML = 'Результат: ' + sum;
+    }
+
+    function calculateWeekendSalary() {
+      var weekendGoods = parseFloat(document.getElementById('weekendGoods').value) || 0;
+      var weekendPC = parseFloat(document.getElementById('weekendPC').value) || 0;
+
+      var salary = 600;
+      if (weekendGoods >= 2400 && weekendPC >= 5600) {
+        salary = 800;
+      }
+
+      document.getElementById('weekendSalaryResult').innerHTML = 'Результат: ' + salary + ' грн';
+    }
+
+    function calculateWeekdaySalary() {
+      var weekdayGoods = parseFloat(document.getElementById('weekdayGoods').value) || 0;
+      var weekdayPC = parseFloat(document.getElementById('weekdayPC').value) || 0;
+
+      var salary = 600;
+      if (weekdayGoods >= 1800 && weekdayPC >= 4200) {
+        salary = 800;
+      }
+
+      document.getElementById('weekdaySalaryResult').innerHTML = 'Результат: ' + salary + ' грн';
     }
 
 </script>
