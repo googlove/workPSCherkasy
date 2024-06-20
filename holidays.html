@@ -224,7 +224,7 @@
       var pcRevenue = parseFloat(document.getElementById('pcRevenue').value) || 0;
       var ps5Revenue = parseFloat(document.getElementById('ps5Revenue').value) || 0;
       var playseatRevenue = parseFloat(document.getElementById('playseatRevenue').value) || 0;
-      var adjustedPcRevenue = pcRevenue - tennisRevenue - ps5Revenue - playseatRevenue;
+      var adjustedPcRevenue = pcRevenue - ps5Revenue - playseatRevenue;
       document.getElementById('adjustedPcRevenueResult').innerHTML = 'Результат: ' + adjustedPcRevenue.toFixed(2);
     }
 
